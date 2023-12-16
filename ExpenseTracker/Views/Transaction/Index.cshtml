@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ExpenseTracker.Models.Transaction>
+
+@{
+    ViewData["PageTitle"] = "Transactions";
+    ViewData["PageActionText"] = "+ New Transaction";
+    ViewData["PageActionUrl"] = "Transaction/Create";
+}
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th class="pt-3">
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryAndIcon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountFormat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFormat)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.TransactionId"><i class="bi bi-pencil-square mx-1" style="color:white"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.TransactionId"><i class="bi bi-info-circle-fill mx-2" style="color:white"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.TransactionId"><i class="bi bi-trash3-fill" style="color:darkred"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

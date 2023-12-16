@@ -1,0 +1,164 @@
+﻿
+@*
+*@
+@{
+    ViewData["isDashboard"] = true;
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawPieChart);
+    google.charts.setOnLoadCallback(drawLineChart);
+
+    //Pie Chart
+    function drawPieChart() {
+        var pieData = new google.visualization.DataTable();
+        pieData.addColumn('string', 'Category');
+        pieData.addColumn('number', 'Percentage');
+
+        var pieChartData = @Html.Raw(Json.Serialize(ViewBag.PieChartData));
+        pieChartData.forEach(function (item) {
+            pieData.addRow([item.categoryName, item.totalAmount]);
+        });
+        var pieOptions = {
+            is3D: true,
+            backgroundColor: 'transparent', 
+            chartArea: { 'backgroundColor': 'transparent', 'width': '100%', 'height': '100%' },
+            legend: { textStyle: { 'color': 'white', 'fontName': 'Inter', 'fontSize': '12' } },
+            enableInteractivity: false
+        };
+
+        var pieChart = new google.visualization.PieChart(document.getElementById('pieChart'));
+            pieChart.draw(pieData, pieOptions);
+    }
+
+    //Line Chart
+  function drawLineChart() {
+        var lineData = new google.visualization.DataTable();
+        lineData.addColumn('string', 'Date');
+        lineData.addColumn('number', 'Expenses');
+        lineData.addColumn('number', 'Incomes');
+
+        var lineChartData = @Html.Raw(Json.Serialize(ViewBag.LineChartData));
+        lineData.addRows(lineChartData);
+        console.log(lineChartData);
+
+        var lineOptions = {
+            curveType: 'function',
+            legend: { 'position' : 'bottom' },
+            backgroundColor: 'transparent',
+            chartArea: { 'width': '70%' },
+            legend: { textStyle: { 'color': 'white', 'fontName': 'Inter', 'fontSize': '12' } },
+            hAxis: { textStyle: { 'color': 'white' }},
+            vAxis: { textStyle: { 'color': 'white' } },
+        };
+
+        var lineChart = new google.visualization.LineChart(document.getElementById('lineChart'));
+        lineChart.draw(lineData, lineOptions);
+
+        
+     }
+</script>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="d-flex flex-row frame mb-4 mb-md-0">
+                <div class="d-flex flex-column justify-content-center p-5 span">
+                    <i class="bi bi-coin fs-1"></i>
+                </div>
+                <div class="d-flex flex-column m-auto py-3">
+                    <span class="lead">Total Income</span>
+                    <h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
+                </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex flex-row frame mb-4 mb-md-0">
+                <div class="d-flex flex-column justify-content-center p-5 span">
+                    <i class="bi bi-receipt-cutoff fs-1"></i>
+                </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total Expense</span>
+                <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex flex-row frame">
+                <div class="d-flex flex-column justify-content-center p-5 span">
+                    <i class="bi bi-graph-up fs-1"></i>
+                </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Balance</span>
+                <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4 h-auto">
+    <div class="col-md-4">
+        <div class="frame p-4">
+            <div class="p-4">
+                <h5 class="fw-bold">Monthly Expenses</h5>
+                <div id="pieChart" class="mt-4 mx-auto"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="frame p-4">
+            <div class="p-4">
+                <h5 class="fw-bold">Weekly Expenses & Incomes</h5>
+                <div id="lineChart" class="h-100 mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row h-auto">
+    <div class="col-md-8">
+        <div class="frame">
+            <div class="p-4">
+                <h5 class="fw-bold">Latest Transactions</h5>
+                <div class="table-responsive">
+                <table class="table table-dark mt-4">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.RecentTransactions)
+                        {
+                            <tr>
+                                <td style="background-color:#243447">@item.CategoryAndIcon</td>
+                                <td style="background-color:#243447">@item.AmountFormat</td>
+                                <td style="background-color:#243447">@item.Description</td>
+                                <td style="background-color:#243447">@item.DateFormat</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            <div class="px-4 pb-4"></div>
+        </div>
+    </div>
+    <div class="col-md-4 h-100">
+        <div class="frame">
+            <div class="p-4">
+                <h5 class="fw-bold">Total Savings</h5>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <i class="bi bi-piggy-bank-fill" style="color:#646e76; font-size: 6em"></i>
+                    <span class="display-6 fw-bold">$@ViewBag.TotalSavings</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>

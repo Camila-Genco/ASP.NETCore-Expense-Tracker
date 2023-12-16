@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ExpenseTracker.Models.Saving>
+
+@{
+    ViewData["PageTitle"] = "Savings";
+    ViewData["PageActionText"] = "+ New Saving Jar";
+    ViewData["PageActionUrl"] = "Saving/Create";
+}
+
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr class="saving-tr">
+            <th>Jar Name</th>
+             <th>Saved</th>
+             <th colspan="2">Progress</th>
+             <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr class="saving-tr">
+                <td>
+                    @Html.DisplayFor(modelItem => item.SavingName)
+                </td>
+                <td>
+                    $ @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td colspan="2">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width:@(item.Percentage)%;" aria-valuenow="@item.Amount" aria-valuemin="0" aria-valuemax="@item.GoalAmount">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SavingId"><i class="bi bi-plus-circle mx-3" style="color:white"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.SavingId"><i class="bi bi-trash3-fill" style="color:darkred"></i></a>
+                </td>
+            </tr>
+    }
+        </tbody>
+        </table>
+

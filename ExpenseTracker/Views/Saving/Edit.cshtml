@@ -1,0 +1,29 @@
+﻿@model ExpenseTracker.Models.Saving
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Add Money to Your Saving Jar</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SavingId" />
+            <div class="form-group">
+                <label class="control-label mb-3">How much money would you like to add?</label>
+                <input name="amountEnteredByUser" class="form-control dark" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-success"/>
+                <a asp-action="Index" class="btn back">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

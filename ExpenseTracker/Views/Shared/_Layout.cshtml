@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ExpenseTracker.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="d-flex">
+    <partial name="_SideBar" class="col-md-1"/>
+    <div class="col-md-11">
+    <header>
+        <nav class="navbar sticky-top">
+            <div class="container-fluid py-2 px-4">
+                <div>
+                <i class="bi bi-wallet2 fs-4"></i>
+                <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Expense Tracker</a>
+                </div>
+                <div class="d-flex">
+                    <i class="bi bi-bell-fill fs-4 mr"></i>
+                    <div class="dropdown">
+                        <a class="d-flex align-items-center justify-content-center text-decoration-none dropdown-toggle" style="color:white" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-4 mx-2"></i>
+                        </a>
+                                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                </ul>
+                     </div>                    
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="main-content">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+                <div class="@(ViewData["isDashboard"] == null? "col-md-10":"col-md-12")">
+            <main role="main" class="pb-3">
+                @if(ViewData["isDashboard"] == null)
+                {<div class="row">
+                    <div class="col-md-7">
+                        <div class="d-flex flex-column mb-5">
+                            <div class="d-flex mb-1">
+                                <div class="flex-grow-1">
+                                <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
+                                </div>
+                                <div>
+                                    <div>
+                                         @if(ViewData["PageActionText"] != null)
+                                         {
+                                        <a class="btn btn-success redirect" href="@ViewData["PageActionUrl"]">@ViewData["PageActionText"]</a>
+                                            }
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                        }
+                @RenderBody()
+            </main>
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <footer class="footer text-muted" style="background-color: #141d26">
+        <div class="container d-flex justify-content-between">
+            &copy; 2023 - ExpenseTracker
+            <div class="d-flex">
+                        <a href="#" class="text-muted"><i class="bi bi-github fs-4 mx-3"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-4"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    </div>
+    </div>
+</body>
+</html>

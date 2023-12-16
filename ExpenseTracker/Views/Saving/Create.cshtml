@@ -1,0 +1,46 @@
+﻿@model ExpenseTracker.Models.Saving
+
+@{
+    ViewData["PageTitle"] = "Create Saving Jar";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="frame p-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SavingName" class="control-label">Jar Name</label>
+                <input asp-for="SavingName" class="form-control dark" />
+                <span asp-validation-for="SavingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Saved Amount</label>
+                <input asp-for="Amount" class="form-control dark"/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoalAmount" class="control-label">Goal Amount</label>
+                <input asp-for="GoalAmount" class="form-control dark"/>
+                <span asp-validation-for="GoalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label">Date</label>
+                <input asp-for="CreatedAt" type="date" class="form-control dark dark-calendar" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Create" class="btn custom-button btn-success" />
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="my-3">
+    <a asp-action="Index" class="btn back">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
