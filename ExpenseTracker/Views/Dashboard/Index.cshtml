@@ -42,7 +42,6 @@
 
         var lineChartData = @Html.Raw(Json.Serialize(ViewBag.LineChartData));
         lineData.addRows(lineChartData);
-        console.log(lineChartData);
 
         var lineOptions = {
             curveType: 'function',
@@ -61,53 +60,54 @@
      }
 </script>
 
+
 <div class="row mb-4">
-    <div class="col-md-4">
-        <div class="d-flex flex-row frame mb-4 mb-md-0">
-                <div class="d-flex flex-column justify-content-center p-5 span">
+    <div class="col-lg-4">
+        <div class="d-flex flex-row frame mb-4 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-center p-5 span">
                     <i class="bi bi-coin fs-1"></i>
                 </div>
-                <div class="d-flex flex-column m-auto py-3">
+            <div class="d-flex flex-column m-auto py-3">
                     <span class="lead">Total Income</span>
-                    <h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
+                    <h1 class="fw-bold">@ViewBag.TotalIncome</h1>
                 </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="d-flex flex-row frame mb-4 mb-md-0">
-                <div class="d-flex flex-column justify-content-center p-5 span">
+    <div class="col-lg-4">
+        <div class="d-flex flex-row frame mb-4 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-center p-5 span">
                     <i class="bi bi-receipt-cutoff fs-1"></i>
                 </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Total Expense</span>
-                <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+                <h1 class="fw-bold">@ViewBag.TotalExpense</h1>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <div class="d-flex flex-row frame">
-                <div class="d-flex flex-column justify-content-center p-5 span">
+            <div class="d-flex align-items-center justify-content-center p-5 span">
                     <i class="bi bi-graph-up fs-1"></i>
                 </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Balance</span>
-                <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+                <h1 class="fw-bold">@ViewBag.Balance</h1>
             </div>
         </div>
     </div>
 </div>
 
 <div class="row mb-4 h-auto">
-    <div class="col-md-4">
-        <div class="frame p-4">
+    <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="frame p-4 overflow-auto">
             <div class="p-4">
                 <h5 class="fw-bold">Monthly Expenses</h5>
                 <div id="pieChart" class="mt-4 mx-auto"></div>
             </div>
         </div>
     </div>
-    <div class="col-md-8">
-        <div class="frame p-4">
+    <div class="col-lg-8 mb-4 mb-lg-0">
+        <div class="frame p-4 overflow-auto">
             <div class="p-4">
                 <h5 class="fw-bold">Weekly Expenses & Incomes</h5>
                 <div id="lineChart" class="h-100 mt-4"></div>
@@ -117,7 +117,7 @@
 </div>
 
 <div class="row h-auto">
-    <div class="col-md-8">
+    <div class="col-lg-8 mb-4 mb-lg-0">
         <div class="frame">
             <div class="p-4">
                 <h5 class="fw-bold">Latest Transactions</h5>
@@ -148,7 +148,7 @@
             <div class="px-4 pb-4"></div>
         </div>
     </div>
-    <div class="col-md-4 h-100">
+    <div class="col-lg-4 h-100 col-md-12">
         <div class="frame">
             <div class="p-4">
                 <h5 class="fw-bold">Total Savings</h5>

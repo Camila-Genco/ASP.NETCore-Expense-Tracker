@@ -29,6 +29,40 @@ nav i:hover {
     transform: scale(1.05) translate(0px);
 }
 
+.main-content {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.sidebar {
+    transition: width 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 2000;
+    transition: width 0.3s ease;
+    background-color: #192734;
+    overflow-y: auto;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+.category-name {
+    display: none; 
+    transition: opacity 0.3s ease;
+    margin-left: 8px;
+    text-
+}
+
+.sidebar:hover .category-name {
+    display: inline; 
+    opacity: 1;
+    letter-spacing: 2px;
+}
+
 .side-link {
     color: #8899ac;
 }
@@ -179,11 +213,12 @@ table thead th:last-child {
 .frame {
     background-color: #192734;
     border-radius: 1rem;
+    max-width: 70vw;
 }
 
     .frame .summary > div:first-child {
         background-color: #222b33;
-        padding: 1rem;
+        
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
     }
@@ -191,18 +226,6 @@ table thead th:last-child {
      .frame .summary > div:first-child i {
          font-weight: bold;
      }
-
-     .frame .income > div:first-child {
-            color: #65da41;
-     }
-
-        .frame .expense > div:first-child {
-            color: #ff4e48;
-        }
-
-        .frame .balance > div:first-child {
-            color: #2aa1ff;
-        }
 
 .span {
     background-color: #243447;
@@ -230,4 +253,8 @@ label {
     .back:hover {
         background-color: #57626e;
         color: white;
+    }
+
+    .footer-content {
+        padding-left:65px;
     }

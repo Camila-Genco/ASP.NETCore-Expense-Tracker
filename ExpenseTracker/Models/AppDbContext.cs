@@ -11,5 +11,6 @@ namespace ExpenseTracker.Models
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Saving> Savings { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

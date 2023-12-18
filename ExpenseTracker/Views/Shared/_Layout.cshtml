@@ -12,12 +12,12 @@
 </head>
 <body>
 
-    <div class="d-flex">
+    <div class="relative d-flex">
     <partial name="_SideBar" class="col-md-1"/>
-    <div class="col-md-11">
+    <div class="col-md-11 main-content">
     <header>
-        <nav class="navbar sticky-top">
-            <div class="container-fluid py-2 px-4">
+        <nav class="navbar sticky-top px-4 ml-8 ">
+            <div class="container-fluid py-2 px-4 ml-8">
                 <div>
                 <i class="bi bi-wallet2 fs-4"></i>
                 <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Expense Tracker</a>
@@ -29,8 +29,8 @@
                             <i class="bi bi-person-circle fs-4 mx-2"></i>
                         </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Login</a></li>
+                                    <li><a class="dropdown-item" href="#">Register</a></li>
                                 </ul>
                      </div>                    
                 </div>
@@ -73,8 +73,8 @@
     </div>
     </div>
 
-        <footer class="footer text-muted" style="background-color: #141d26">
-        <div class="container d-flex justify-content-between">
+     <footer class="footer text-muted" style="background-color: #141d26">
+                <div class="container d-flex justify-content-between footer-content">
             &copy; 2023 - ExpenseTracker
             <div class="d-flex">
                         <a href="#" class="text-muted"><i class="bi bi-github fs-4 mx-3"></i></a>

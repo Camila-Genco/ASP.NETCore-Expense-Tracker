@@ -3,39 +3,50 @@
 @{
 }
 
-<div class="d-grid">
+<div class="d-flex">
     <div class="row">
-        <div class="col-sm-auto sticky-top" style="background-color:#192734">
-            <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top" style="background-color:#192734">
+        <div class="col-auto d-flex flex-column justify-content-center sidebar">
+            <div class="d-flex flex-column align-items-center" style="background-color:#192734">
                 <div class="profile">
-                   
                 </div>
-                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                <ul class="nav nav-pills nav-flush flex-column mx-auto text-start align-items-start">
                     <li class="nav-item">
-                        <a href="/" class="nav-link py-3 px-2 side-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                        <div class="d-flex flex-column">
+                        <a href="/" class="nav-link py-5 px-2 side-link" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                             <i class="bi-house fs-1"></i>
+                                <span class="category-name">Home</span>
                         </a>
+                        </div>
                     </li>
                     <li>
-                        <a asp-controller="Transaction" asp-action="Index" class="nav-link py-3 px-2 side-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                        <div class="d-flex flex-column">
+                        <a asp-controller="Transaction" asp-action="Index" class="nav-link py-5 px-2 side-link" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                             <i class="bi bi-cash-coin fs-1"></i>
+                            <span class="category-name">Transactions</span>
                         </a>
+                        </div>
                     </li>
                     <li>
-                        <a asp-controller="Category" asp-action="Index" class="nav-link py-3 px-2 side-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                        <div class="d-flex flex-column">
+                        <a asp-controller="Category" asp-action="Index" class="nav-link py-5 px-2 side-link" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                             <i class="bi bi-bookmarks fs-1"></i>
+                                <span class="category-name">Categories</span>
                         </a>
+                        </div>
                     </li>
                     <li>
-                        <a asp-controller="Saving" asp-action="Index" class="nav-link py-3 px-2 side-link" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                        <div class="d-flex flex-column">
+                        <a asp-controller="Saving" asp-action="Index" class="nav-link py-5 px-2 side-link" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
                             <i class="bi bi-piggy-bank fs-1"></i>
+                                <span class="category-name">Savings</span>
                         </a>
+                        </div>
                     </li>
 
                 </ul>
             </div>
         </div>
-        <div class="col-sm p-3 min-vh-100">
+        <div class="col-sm ml-5 min-vh-100">
         </div>
     </div>
 </div>
