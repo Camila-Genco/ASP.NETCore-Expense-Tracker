@@ -9,6 +9,7 @@ using ExpenseTracker.Models;
 using System.ComponentModel;
 using System.Globalization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpenseTracker.Controllers
 {
@@ -22,6 +23,7 @@ namespace ExpenseTracker.Controllers
         }
 
         // GET: Transaction
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.Transactions.Include(t => t.Category);

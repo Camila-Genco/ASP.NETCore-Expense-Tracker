@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpenseTracker.Controllers
 {
@@ -20,6 +21,7 @@ namespace ExpenseTracker.Controllers
         }
 
         // GET: Category
+        [Authorize]
         public async Task<IActionResult> Index()
         {
               return _context.Categories != null ? 

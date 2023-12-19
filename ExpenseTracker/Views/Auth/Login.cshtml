@@ -19,8 +19,9 @@
                     <input asp-for="Password" type="password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group d-flex justify-content-between">
                     <input type="submit" value="Login" class="btn custom-button btn-success" />
+                    <span class="align-self-center">Don't Have an Account? <a href="/Auth/Login" class="text-white fw-bold">Sign Up</a></span>
                 </div>
             </form>
         </div>

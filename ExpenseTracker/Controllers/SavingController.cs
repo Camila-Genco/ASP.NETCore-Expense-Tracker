@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpenseTracker.Controllers
 {
@@ -20,9 +21,10 @@ namespace ExpenseTracker.Controllers
         }
 
         // GET: Saving
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-              return _context.Savings != null ? 
+             return _context.Savings != null ? 
                           View(await _context.Savings.ToListAsync()) :
                           Problem("Entity set 'AppDbContext.Savings'  is null.");
 
