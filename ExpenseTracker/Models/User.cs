@@ -10,9 +10,9 @@ namespace ExpenseTracker.Models
         public int UserId { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
-        public string UserName { get; set; }
-        public string UserEmail { get; set; }
-        public string Password { get; set; }
+        public string UserName { get; set; } = "Jane Doe";
+        public string UserEmail { get; set; } = "example@mail.com";
+        public string Password { get; set; } = "contrasena123";
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }

@@ -12,27 +12,35 @@
 </head>
 <body>
 
+    
     <div class="relative d-flex">
     <partial name="_SideBar" class="col-md-1"/>
     <div class="col-md-11 main-content">
     <header>
         <nav class="navbar sticky-top px-4 ml-8 ">
-            <div class="container-fluid py-2 px-4 ml-8">
+            <div class="container py-2 px-4 ml-8">
                 <div>
                 <i class="bi bi-wallet2 fs-4"></i>
                 <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Expense Tracker</a>
                 </div>
                 <div class="d-flex">
-                    <i class="bi bi-bell-fill fs-4 mr"></i>
-                    <div class="dropdown">
-                        <a class="d-flex align-items-center justify-content-center text-decoration-none dropdown-toggle" style="color:white" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle fs-4 mx-2"></i>
-                        </a>
-                                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                                    <li><a class="dropdown-item" href="#">Login</a></li>
-                                    <li><a class="dropdown-item" href="#">Register</a></li>
-                                </ul>
-                     </div>                    
+                       <div class="dropdown">
+                            <a style="color:white" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-4 mx-4"></i>
+                            </a>
+                                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                 @if (User.Identity.IsAuthenticated)
+                                 {
+                                    <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                                 }
+                                 else
+                                 {
+                                    <li><a class="dropdown-item" href="/Auth/Login">Login</a></li>
+                                    <li><a class="dropdown-item" href="/Auth/Create">Sign Up</a></li> 
+                                 }
+                            </ul>
+                       </div>
+                       <i class="bi bi-bell-fill fs-4 mr"></i>
                 </div>
 
             </div>

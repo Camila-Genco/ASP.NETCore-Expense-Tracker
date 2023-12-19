@@ -258,3 +258,11 @@ label {
     .footer-content {
         padding-left:65px;
     }
+
+.dropdown-item {
+    color: black !important;
+}
+
+.dropdown-menu {
+    overflow: hidden !important;
+}

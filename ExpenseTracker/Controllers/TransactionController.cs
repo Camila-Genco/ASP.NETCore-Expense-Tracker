@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Models;
 using System.ComponentModel;
 using System.Globalization;
+using System.Security.Claims;
 
 namespace ExpenseTracker.Controllers
 {
@@ -62,9 +63,16 @@ namespace ExpenseTracker.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(transaction);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+
+                if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
+                {
+                    transaction.UserId = userId;
+
+                    _context.Add(transaction);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", transaction.CategoryId);
 

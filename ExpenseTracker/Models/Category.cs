@@ -8,6 +8,8 @@ namespace ExpenseTracker.Models
     {
         [Key]
         public int CategoryId { get; set; }
+        public int UserId { get; set; }
+        public User? User { get; set; }
 
         [Column(TypeName = "nvarchar(50)")]
         public string Name { get; set; }
