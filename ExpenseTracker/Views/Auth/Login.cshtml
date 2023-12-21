@@ -4,8 +4,11 @@
     ViewData["PageTitle"] = "Login";
 }
 
-<div class="row">
-    <div class="col-md-7">
+<div class="row align-items-center">
+<span class="fw-bold">Welcome Back!</span> 
+<p class="mb-4">Enter your credentials</p>
+<div class="d-flex gap-4">
+    <div class="col-11 col-lg-7">
         <div class="frame p-5">
             <form asp-action="Login" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -19,11 +22,15 @@
                     <input asp-for="Password" type="password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                <div class="form-group d-flex justify-content-between">
+                <div class="form-group d-grid gap-2">
                     <input type="submit" value="Login" class="btn custom-button btn-success" />
-                    <span class="align-self-center">Don't Have an Account? <a href="/Auth/Login" class="text-white fw-bold">Sign Up</a></span>
+                    <span class="mt-2">Don't Have an Account? <a href="/Auth/Create" class="auth-text">Sign Up.</a></span>
                 </div>
             </form>
         </div>
     </div>
+    <div class="d-none d-lg-flex col-md-5 justify-content-center frame">
+            <i class="bi bi-person-fill m-auto" style="color:#646e76; font-size: 6em"></i>
+    </div>
+</div>
 </div>

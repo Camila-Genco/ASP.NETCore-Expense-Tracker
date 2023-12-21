@@ -21,7 +21,7 @@
             <div class="container py-2 px-4 ml-8">
                 <div>
                 <i class="bi bi-wallet2 fs-4"></i>
-                <a class="navbar-brand logo" asp-controller="Home" asp-action="Index">Expense Tracker</a>
+                <a class="navbar-brand logo" asp-controller="Dashboard" asp-action="Index">Expense Tracker</a>
                 </div>
                 <div class="d-flex">
                        <div class="dropdown">
@@ -49,16 +49,14 @@
     <div class="main-content">
     <div class="container mt-5">
         <div class="row justify-content-center">
-                <div class="@(ViewData["isDashboard"] == null? "col-md-10":"col-md-12")">
+            <div class="@(ViewData["isDashboard"] == null? "col-lg-10":"col-lg-12")">
             <main role="main" class="pb-3">
                 @if(ViewData["isDashboard"] == null)
-                {<div class="row">
+                {<div class="row align-items-center">
                     <div class="col-md-7">
-                        <div class="d-flex flex-column mb-5">
-                            <div class="d-flex mb-1">
-                                <div class="flex-grow-1">
+                        <div class="d-flex flex-column mb-3">
+                            <div class="d-flex mb-1 justify-content-between">                                
                                 <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
-                                </div>
                                 <div>
                                     <div>
                                          @if(ViewData["PageActionText"] != null)

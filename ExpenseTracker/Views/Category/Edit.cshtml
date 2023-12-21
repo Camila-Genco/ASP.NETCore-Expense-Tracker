@@ -1,9 +1,10 @@
 ﻿@model ExpenseTracker.Models.Category
 
+<div class="row col-md-7">
 <h2>Edit category</h2>
 <hr />
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-10">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CategoryId" />

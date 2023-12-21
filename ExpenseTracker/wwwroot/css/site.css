@@ -86,7 +86,7 @@ nav i:hover {
 }
 
 .custom-button:hover {
-     transform: scale(1.1);
+     transform: scale(1.02);
      color: white;
  }
 
@@ -246,14 +246,15 @@ label {
 }
 
 .back {
-    background-color: #616d7b;
+    background-color: transparent;
+    border: 1px solid white;
     color: white;
 }
 
-    .back:hover {
+.back:hover {
         background-color: #57626e;
         color: white;
-    }
+ }
 
     .footer-content {
         padding-left:65px;
@@ -270,3 +271,16 @@ label {
 a {
     text-decoration: none !important;
 }
+
+.table-responsive::-webkit-scrollbar{
+   display:hidden !important;
+}
+
+.auth-text {
+    color: #8899ac;
+}
+
+    .auth-text:hover {
+        color: #8899ac;
+        font-weight: bold;
+    }

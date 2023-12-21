@@ -1,11 +1,14 @@
 ﻿@model ExpenseTracker.Models.User
 
 @{
-    ViewData["PageTitle"] = "Sign Up";
+    ViewData["PageTitle"] = "Registration";
 }
-
-<div class="row">
-    <div class="col-md-7">
+   
+<div class="row align-items-center">
+  <span class="fw-bold">Welcome!</span>
+  <p class="mb-4">Fill you account detail</p>
+    <div class="d-flex gap-4">
+        <div class="col-11 col-lg-7">
         <div class="frame p-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -23,14 +26,18 @@
                 <label asp-for="Password" class="control-label">Password</label>
                 <input asp-for="Password" type="password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
-            </div>              
-                    
-            <div class="form-group d-flex justify-content-between">
+            </div>
+
+                    <div class="form-group d-grid gap-2">
                     <input type="submit" value="Create" class="btn custom-button btn-success" />
-                    <span class="align-self-center">Already Have an Account? <a href="/Auth/Login" class="text-white fw-bold">Login</a></span>
+                        <span class="mt-2">Already Have an Account? <a href="/Auth/Login" class="auth-text">Login.</a></span>
             </div>
         </form>
     </div>
+    </div>
+                <div class="d-none d-lg-flex col-md-5 justify-content-center frame">
+            <i class="bi bi-person-lines-fill m-auto" style="color:#646e76; font-size: 6em"></i>
+                </div>
     </div>
 </div>
 
