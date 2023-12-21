@@ -9,10 +9,10 @@
         <div class="frame p-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <select name="CategoryId" class="pick-category"> 
+                <select name="CategoryId" class="pick-category">
                     @foreach (var category in @ViewBag.Categories)
                     {
-                        <option asp-for="CategoryId" name="CategoryId" value="@category.CategoryId" class="dropdown-item">@category.NameAndIcon</option>
+                        <option asp-for="CategoryId" name="CategoryId" value="@category.CategoryId" class="dropdown-item custom-drop">@category.NameAndIcon</option>
                     }
                 </select>
             <div class="form-group">

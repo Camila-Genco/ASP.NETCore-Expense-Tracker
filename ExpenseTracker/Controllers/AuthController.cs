@@ -25,27 +25,15 @@ namespace ExpenseTracker.Controllers
         // GET: Auth
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Users'  is null.");
-        }
-
-        // GET: Auth/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Users == null)
+            if (_context.Users != null)
             {
-                return NotFound();
+                var users = await _context.Users.ToListAsync();
+                return Ok(users);
             }
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
+            else
             {
-                return NotFound();
+                return Problem("Entity set 'AppDbContext.Users' is null.", statusCode: 500);
             }
-
-            return View(user);
         }
 
         // GET: Auth/Create
@@ -68,22 +56,6 @@ namespace ExpenseTracker.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
-
-        // GET: Auth/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Users == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
             }
             return View(user);
         }
@@ -123,24 +95,6 @@ namespace ExpenseTracker.Controllers
             return View(user);
         }
 
-        // GET: Auth/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Users == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
         // POST: Auth/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -157,7 +111,7 @@ namespace ExpenseTracker.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Ok(new { message = "User deleted successfully" });
         }
 
         // GET: Auth/Login

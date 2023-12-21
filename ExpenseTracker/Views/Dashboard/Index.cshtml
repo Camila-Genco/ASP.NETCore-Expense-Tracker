@@ -1,7 +1,4 @@
-﻿
-@*
-*@
-@{
+﻿@{
     ViewData["isDashboard"] = true;
 }
 
@@ -34,7 +31,7 @@
     }
 
     //Line Chart
-  function drawLineChart() {
+    function drawLineChart() {
         var lineData = new google.visualization.DataTable();
         lineData.addColumn('string', 'Date');
         lineData.addColumn('number', 'Expenses');
@@ -54,40 +51,42 @@
         };
 
         var lineChart = new google.visualization.LineChart(document.getElementById('lineChart'));
-        lineChart.draw(lineData, lineOptions);
-
-        
+        lineChart.draw(lineData, lineOptions);       
      }
 </script>
 
+@*Expense overview**@
 <div class="row mb-4">
+    @*Total income*@
     <div class="col-lg-4">
         <div class="d-flex flex-row frame mb-4 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center p-5 span">
                     <i class="bi bi-coin fs-1"></i>
-                </div>
+            </div>
             <div class="d-flex flex-column m-auto py-3">
                     <span class="lead">Total Income</span>
                     <h1 class="fw-bold">@ViewBag.TotalIncome</h1>
-                </div>
+            </div>
         </div>
     </div>
+    @*Total expense*@
     <div class="col-lg-4">
         <div class="d-flex flex-row frame mb-4 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center p-5 span">
-                    <i class="bi bi-receipt-cutoff fs-1"></i>
-                </div>
+                 <i class="bi bi-receipt-cutoff fs-1"></i>
+            </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Total Expense</span>
                 <h1 class="fw-bold">@ViewBag.TotalExpense</h1>
             </div>
         </div>
     </div>
+    @*Balance*@
     <div class="col-lg-4">
         <div class="d-flex flex-row frame">
             <div class="d-flex align-items-center justify-content-center p-5 span">
-                    <i class="bi bi-graph-up fs-1"></i>
-                </div>
+                <i class="bi bi-graph-up fs-1"></i>
+            </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Balance</span>
                 <h1 class="fw-bold">@ViewBag.Balance</h1>
@@ -96,7 +95,9 @@
     </div>
 </div>
 
+@*Charts*@
 <div class="row mb-4 h-auto">
+    @*Pie chart*@
     <div class="col-lg-4 mb-4 mb-lg-0">
         <div class="frame p-4 overflow-auto">
             <div class="p-4">
@@ -105,6 +106,7 @@
             </div>
         </div>
     </div>
+    @*Line chart*@
     <div class="col-lg-8 mb-4 mb-lg-0">
         <div class="frame p-4 overflow-auto">
             <div class="p-4">
@@ -115,6 +117,7 @@
     </div>
 </div>
 
+@*Latest transactions*@
 <div class="row h-auto">
     <div class="col-lg-8 mb-4 mb-lg-0">
         <div class="frame">
@@ -147,6 +150,7 @@
             <div class="px-4 pb-4"></div>
         </div>
     </div>
+    @*Savings*@
     <div class="col-lg-4 h-100 col-md-12">
         <div class="frame">
             <div class="p-4">
@@ -158,6 +162,6 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 </div>

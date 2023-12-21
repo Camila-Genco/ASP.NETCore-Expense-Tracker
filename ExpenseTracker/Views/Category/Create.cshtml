@@ -7,32 +7,32 @@
 <div class="row">
     <div class="col-md-7">
         <div class="frame p-5">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control dark" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-4">
-                <label asp-for="Icon" class="control-label"></label>
-                <input asp-for="Icon" class="form-control dark" />
-                <span asp-validation-for="Icon" class="text-danger"></span>
-            </div>
-            <div class="mb-4">
-                    <div class="form-check form-check-inline">
-                        <input asp-for="Type" type="radio" id="Expense" name="type" value="Expense" class="form-check-input"/>
-                    <label asp-for="Type" for="Expense">Expense</label>
-                    </div>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control dark" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Icon" class="control-label"></label>
+                    <input asp-for="Icon" class="form-control dark" />
+                    <span asp-validation-for="Icon" class="text-danger"></span>
+                </div>
+                <div class="mb-4">
                         <div class="form-check form-check-inline">
-                        <input asp-for="Type" type="radio" id="Income" name="type" value="Income" class="form-check-input"/>
-                    <label asp-for="Type" for="Income">Income</label>
-                    </div>
-            </div>
-            <div class="form-group">
-                    <input type="submit" value="Create" class="btn custom-button btn-success"/>
-            </div>
-        </form>
+                            <input asp-for="Type" type="radio" id="Expense" name="type" value="Expense" class="form-check-input"/>
+                            <label asp-for="Type" for="Expense">Expense</label>
+                        </div>
+                            <div class="form-check form-check-inline">
+                            <input asp-for="Type" type="radio" id="Income" name="type" value="Income" class="form-check-input"/>
+                            <label asp-for="Type" for="Income">Income</label>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Create" class="btn custom-button btn-success"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>

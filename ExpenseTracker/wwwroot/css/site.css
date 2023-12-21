@@ -284,3 +284,21 @@ a {
         color: #8899ac;
         font-weight: bold;
     }
+
+    .custom-drop {
+        color: white !important;
+    }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Invert the color to appear white */
+}
+
+select:focus {
+    outline: none;
+}

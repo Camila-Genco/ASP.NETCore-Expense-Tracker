@@ -10,89 +10,91 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ExpenseTracker.styles.css" asp-append-version="true" />
 </head>
-<body>
 
-    
+<body>    
     <div class="relative d-flex">
-    <partial name="_SideBar" class="col-md-1"/>
-    <div class="col-md-11 main-content">
-    <header>
-        <nav class="navbar sticky-top px-4 ml-8 ">
-            <div class="container py-2 px-4 ml-8">
-                <div>
-                <i class="bi bi-wallet2 fs-4"></i>
-                <a class="navbar-brand logo" asp-controller="Dashboard" asp-action="Index">Expense Tracker</a>
-                </div>
-                <div class="d-flex">
-                       <div class="dropdown">
-                            <a style="color:white" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-circle fs-4 mx-4"></i>
-                            </a>
-                                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                                 @if (User.Identity.IsAuthenticated)
-                                 {
-                                    <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Logout</a></li>
-                                 }
-                                 else
-                                 {
-                                    <li><a class="dropdown-item" href="/Auth/Login">Login</a></li>
-                                    <li><a class="dropdown-item" href="/Auth/Create">Sign Up</a></li> 
-                                 }
-                            </ul>
-                       </div>
-                       <i class="bi bi-bell-fill fs-4 mr"></i>
-                </div>
+        <partial name="_SideBar" class="col-md-1"/>
+        <div class="col-md-11 main-content">
 
-            </div>
-        </nav>
-    </header>
-    <div class="main-content">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="@(ViewData["isDashboard"] == null? "col-lg-10":"col-lg-12")">
-            <main role="main" class="pb-3">
-                @if(ViewData["isDashboard"] == null)
-                {<div class="row align-items-center">
-                    <div class="col-md-7">
-                        <div class="d-flex flex-column mb-3">
-                            <div class="d-flex mb-1 justify-content-between">                                
-                                <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
-                                <div>
-                                    <div>
-                                         @if(ViewData["PageActionText"] != null)
+            <header>
+                <nav class="navbar sticky-top px-4 ml-8 ">
+                    <div class="container py-2 px-4 ml-8">
+                        <div>
+                            <i class="bi bi-wallet2 fs-4"></i>
+                            <a class="navbar-brand logo" asp-controller="Dashboard" asp-action="Index">Expense Tracker</a>
+                        </div>
+                        <div class="d-flex">
+                               <div class="dropdown">
+                                    <a style="color:white" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-person-circle fs-4 mx-4"></i>
+                                    </a>
+                                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                         @if (User.Identity.IsAuthenticated)
                                          {
-                                        <a class="btn btn-success redirect" href="@ViewData["PageActionUrl"]">@ViewData["PageActionText"]</a>
-                                            }
+                                            <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                                         }
+                                         else
+                                         {
+                                            <li><a class="dropdown-item" href="/Auth/Login">Login</a></li>
+                                            <li><a class="dropdown-item" href="/Auth/Create">Sign Up</a></li> 
+                                         }
+                                    </ul>
+                               </div>
+                               <i class="bi bi-bell-fill fs-4 mr"></i>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="main-content">
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="@(ViewData["isDashboard"] == null? "col-lg-10":"col-lg-12")">
+                            <main role="main" class="pb-3">
+                                @if(ViewData["isDashboard"] == null)
+                                {
+                                    <div class="row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="d-flex flex-column mb-3">
+                                                <div class="d-flex mb-1 justify-content-between">                                
+                                                    <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
+                                                    <div>
+                                                        <div>
+                                                             @if(ViewData["PageActionText"] != null)
+                                                             {
+                                                                <a class="btn btn-success redirect" href="@ViewData["PageActionUrl"]">@ViewData["PageActionText"]</a>
+                                                             }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
+                                }
+                                @RenderBody()
+                            </main>
                         </div>
                     </div>
                 </div>
-                </div>
-                        }
-                @RenderBody()
-            </main>
             </div>
-        </div>
-    </div>
-    </div>
 
-     <footer class="footer text-muted" style="background-color: #141d26">
+            <footer class="footer text-muted" style="background-color: #141d26">
                 <div class="container d-flex justify-content-between footer-content">
-            &copy; 2023 - ExpenseTracker
-            <div class="d-flex">
-                        <a href="#" class="text-muted"><i class="bi bi-github fs-4 mx-3"></i></a>
-                        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-4"></i></a>
-            </div>
+                    &copy; 2023 - ExpenseTracker
+                    <div class="d-flex">
+                         <a href="#" class="text-muted"><i class="bi bi-github fs-4 mx-3"></i></a>
+                         <a href="#" class="text-muted"><i class="bi bi-linkedin fs-4"></i></a>
+                    </div>
+                </div>
+            </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    </div>
     </div>
 </body>
 </html>

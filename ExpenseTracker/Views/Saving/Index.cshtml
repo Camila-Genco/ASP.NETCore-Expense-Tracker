@@ -5,19 +5,17 @@
     ViewData["PageActionText"] = "+ New Saving Jar";
     ViewData["PageActionUrl"] = "Saving/Create";
 }
-
-<div class="row col-md-10">
-<div class="table-responsive">
+ 
 <table class="table table-dark table-hover">
     <thead>
         <tr class="saving-tr">
-            <th>Jar Name</th>
+             <th>Jar Name</th>
              <th>Saved</th>
              <th colspan="2">Progress</th>
              <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
     @foreach (var item in Model) {
             <tr class="saving-tr">
                 <td>
@@ -38,7 +36,6 @@
                 </td>
             </tr>
     }
-        </tbody>
-        </table>
-        </div>
-        </div>
+    </tbody>
+</table>
+       
