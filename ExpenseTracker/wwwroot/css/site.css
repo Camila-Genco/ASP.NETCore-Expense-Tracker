@@ -11,22 +11,17 @@ html {
 html {
   position: relative;
   min-height: 100%;
-  font-family: "Inter"
 }
 
 *{
     font-family: "Inter"
 }
 
+/*General layout*/
 body {
     margin-bottom: 60px;
     background-color: #15202b;
     color: #ffffff;
-}
-
-nav i:hover {
-    cursor: pointer;
-    transform: scale(1.05) translate(0px);
 }
 
 .main-content {
@@ -46,6 +41,7 @@ nav i:hover {
     overflow-y: auto;
 }
 
+/*Sidebar*/
 .sidebar:hover {
     width: 220px;
 }
@@ -54,7 +50,6 @@ nav i:hover {
     display: none; 
     transition: opacity 0.3s ease;
     margin-left: 8px;
-    text-
 }
 
 .sidebar:hover .category-name {
@@ -71,10 +66,47 @@ nav i:hover {
     color: white;
 }
 
-.main-content {
-        margin-left;
+/*Navbar*/
+nav i:hover {
+    cursor: pointer;
+    transform: scale(1.05) translate(0px);
 }
 
+.logo {
+    font-family: 'Poppins';
+    color: white;
+}
+
+.logo:hover {
+    color: white;
+}
+
+.dropdown-item {
+    color: black !important;
+}
+
+/*Container*/
+.frame {
+    background-color: #192734;
+    border-radius: 1rem;
+    max-width: 70vw;
+}
+
+/*Links*/
+a {
+    text-decoration: none !important;
+}
+
+.auth-text {
+    color: #8899ac;
+}
+
+.auth-text:hover {
+     color: #8899ac;
+     font-weight: bold;
+}
+
+/*Buttons*/
 .btn {
     outline: none !important;
     box-shadow: none !important;
@@ -89,6 +121,28 @@ nav i:hover {
      transform: scale(1.02);
      color: white;
  }
+
+.redirect {
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.back {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.back:hover {
+    background-color: #57626e;
+    color: white;
+}
+
+/*Forms*/
+label {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
 
 .dark {
     background-color: #192734;
@@ -108,6 +162,36 @@ input[type="radio"]:checked {
     background-color: #38e54d;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+select:focus {
+    outline: none;
+}
+
+.pick-category {
+    background-color: #192734;
+    color: white;
+    width: 100%;
+    width: 100%;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.custom-drop {
+    color: white !important;
+}
+
+/*Tables*/
 .table td {
     padding: 14px;
     padding-left: 45px;
@@ -142,97 +226,7 @@ table thead th:last-child {
     border-radius: 0px 7px 0px 0px;
 }
 
-.redirect {
-        text-decoration: none !important;
-        color: #ffffff !important;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-    .button-group input[type="radio"] {
-        display: none;
-    }
-
-    .button-group label {
-        position: relative;
-        padding: 10px 20px;
-        margin: 0 -3px;
-        border: 2px solid #333;
-        background-color: #fff;
-        color: #333;
-        text-align: center;
-        cursor: pointer;
-        z-index: 1;
-        width: 100%;
-    }
-
-    #expense {
-            border-radius: 10px 0px 0px 10px;
-     }
-
-    #income {
-            border-radius: 0px 10px 10px 0px;
-     }
-
-.button-group input[type="radio"]:checked + label {
-    background-color: #333;
-    color: #fff;
-    border-color: #fff;
-}
-
-    .button-group input[type="radio"] + input[type="radio"] + label {
-        border-left-color: #333;
-        border-right-color: #333;
-    }
-
-.logo {
-    font-family: 'Poppins';
-    color: white;
-}
-
-.pick-category {
-    background-color: #192734;
-    color: white;
-    width: 100%;
-    width: 100%;
-    padding: 5px;
-    padding-right: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.logo:hover {
-    color: white;
-}
-
-.frame {
-    background-color: #192734;
-    border-radius: 1rem;
-    max-width: 70vw;
-}
-
-    .frame .summary > div:first-child {
-        background-color: #222b33;
-        
-        border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-    }
-
-     .frame .summary > div:first-child i {
-         font-weight: bold;
-     }
-
-.span {
-    background-color: #243447;
-    border-radius: 7px 0px 0px 7px;
-}
-
-.saving-tr th{
+.saving-tr th {
     background-color: #182c25;
 }
 
@@ -240,65 +234,12 @@ table thead th:last-child {
     background-color: #2c4c3b;
 }
 
-label {
-    margin-top: 7px;
-    margin-bottom: 7px;
+/*Footer*/
+.footer-content {
+    padding-left:65px;
 }
 
-.back {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-}
-
-.back:hover {
-        background-color: #57626e;
-        color: white;
- }
-
-    .footer-content {
-        padding-left:65px;
-    }
-
-.dropdown-item {
-    color: black !important;
-}
-
-.dropdown-menu {
-    overflow: hidden !important;
-}
-
-a {
-    text-decoration: none !important;
-}
-
-.table-responsive::-webkit-scrollbar{
-   display:hidden !important;
-}
-
-.auth-text {
-    color: #8899ac;
-}
-
-    .auth-text:hover {
-        color: #8899ac;
-        font-weight: bold;
-    }
-
-    .custom-drop {
-        color: white !important;
-    }
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Invert the color to appear white */
-}
-
-select:focus {
-    outline: none;
+.span {
+    background-color: #243447;
+    border-radius: 7px 0px 0px 7px;
 }
