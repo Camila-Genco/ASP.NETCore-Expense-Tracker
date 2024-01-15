@@ -14,19 +14,21 @@ This is an app crafted for you to track your income, manage your expenses and ha
 Here are screenshots that show the Expense Tracker demo application in use.
 
 **Dashboard**
-//
+![expese-tracker-thumbnail](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/697ac8be-c253-48d9-a1b7-e6712de3d108)
 
 **Login/Sign Up Page**
-//
+![expense-tracker-login](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/d6963a07-7e57-462b-b8fd-8499a301cf56)
+![expense-tracker-sign](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/66818124-780f-4605-ac19-de36cc9e918c)
+
 
 **Transactions Page**
-//
+![expense-tracker-transaction](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/9fe00727-92b5-4f8e-be26-2e6c98846ccc)
 
 **Categories Page**
-//
+![expense-tracker-category](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/be66908e-069e-4ecf-bc2a-4c1eb76d6f45)
 
 **Savings Page**
-//
+![expense-tracker-saving](https://github.com/Camila-Genco/ExpenseTracker/assets/98172802/5f09ebc1-4702-4faf-b644-e17a73effbaf)
 
 ### Prerequisites
 
